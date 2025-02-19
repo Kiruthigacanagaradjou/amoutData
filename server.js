@@ -21,7 +21,7 @@ async function createAmount() {
     // amount.save();
     let amountData = await amountModel.find().lean().exec();
     console.log(amountData,new Date().getHours())
-    if(new Date().getHours() > 6 && new Date().getHours() < new Date().getHours(9)){
+    if(new Date().getHours() > 6 && new Date().getHours() < 9){
         console.log("im there")
         amountData[0].creditAmount -=10;
         await amountModel.find({_id:amountData[0]._id}).updateOne({creditAmount:amountData[0].creditAmount});
